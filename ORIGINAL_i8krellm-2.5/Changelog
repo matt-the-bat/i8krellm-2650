@@ -1,0 +1,49 @@
+Version 2.5 20030921:
+  Eric Johnson <eric@coding-zone.com>
+    Initial install shouldn't generate annoying console errors
+    Make support for GKrellM v2 the default
+
+Version 2.4 20030825:
+  John D'Ausilio <john@sort.net>:
+    Patch for ACPI support.
+
+Version 2.3 20030210:
+  Dagfinn Ilmari Mannsåker <ilmari@ping.uio.no>:
+    Can now stop fan if previously started manually
+    i8kfan utilitiy is called much less often
+    i8kfan output redirected to /dev/null
+
+Version 2.2 20021119:
+  Marcel Mol <mnarcel@mesa.nl>:
+    Dynamically determine number of ticks in GK struct
+    Pull fan states from /proc/i8k rather than keep track in plugin
+
+Version 2.1 20021028:
+  Removed development #include
+
+Version 2.0 20021028:
+  Added support for GKrellM 2
+  Added chart to plot CPU temperature
+  Added fans speed display below fan animations
+  Added ability to display left only /right only / both fans
+
+Version 1.3 20011227:
+  Marcel Mol <mnarcel@mesa.nl>:
+    Added support for i8kutils >= 1.5
+    In accordance to the i8kmon utility from the i8kutils:
+       Added hysteresis for turning fans on and of so the 
+          flip/flop fan behaviour is gone.
+       Defined more sane initial temp values for switching fans
+    Added AC or BAT indicator to display
+
+Version 1.2 20011207:
+  Fan animation always stops on single blades now.
+  Added a troubleshooting tip in the info tag.
+  Also remembered to bump up the version number this time.
+
+Version 1.1 20011203:
+  Changed layout to allow better GKrellM resizing.
+
+Version 1.0 20011203:
+  Initial version
+

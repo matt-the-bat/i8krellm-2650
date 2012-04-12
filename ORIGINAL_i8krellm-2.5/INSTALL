@@ -1,0 +1,89 @@
+Supported operating systems
+---------------------------
+  Linux (requires kernel >= 2.4.14-pre8)
+
+Supported hardware and BIOS versions
+------------------------------------
+	Inspiron 8000 (BIOS A17)
+	Inspiron 8100 (BIOS A04)
+	Inspiron 4000 (BIOS A10), no fan speed
+	Inspiron 4000 (BIOS A18)
+	Inspiron 4100
+	Inspiron 3800 (BIOS A14), no fan speed
+	Latitude C400 (BIOS A01)
+	Latitude C510 (BIOS A07)
+	Latitude C600 (BIOS A17)
+	Latitude C610
+	Latitude C800 (BIOS A17)
+	Latitude CPiA (BIOS A14), no fan speed
+	Latitude CPx J750GT (BIOS A13), no fan speed
+
+	It does not work with the following models:
+	  Inspiron 2500 (BIOS A10)
+	  Inspiron 3200
+	  Inspiron 5000e (BIOS A06)
+	  Inspiron 7000
+	  Inspiron 7500
+	  Latitude LS H500ST
+
+	(see http://www.debian.org/~dz/i8k/00-README for details)
+
+Requirements
+------------
+  GKrellM >= 1.2.0 and even GKrellM 2.0 (http://gkrellm.net)
+  Linux kernel >= 2.4.14-pre8
+  SMM BIOS kernel module (http://www.debian.org/~dz/i8k/)
+  i8kutils >= 1.5 (http://www.debian.org/~dz/i8k/)
+
+SMM BIOS kernel module and utils
+--------------------------------
+  Your kernel must include the SMM BIOS kernel module written by
+  Massimo Dal Zotto <dz@debian.org>.  The module is listed as Dell
+  Inspiron 8000 support under the CPU configuration of your kernel
+  configuration screen.  I recommend building it as a module so
+  you can enable/disable APM when loading the module.
+
+  After building the module and insmod'ing it, you will have a
+  /proc/i8k that records the current cpu temperature, Dell service
+  tag, fan states, apm state, etc.  The /proc/i8k file is periodically
+  polled by the i8krellm plugin.
+
+  You must also use the i8kfan utility included with the i8kutils
+  package found at http://www.debian.org/~dz/i8k/.  i8krellm uses the
+  i8kfan utility to control your fans.
+
+Installing
+----------
+  Extract the tar file,
+    tar xzf i8krellm-2.x.tar.gz
+
+  Go into the new directory,
+    cd i8krellm-2.x
+
+  Installing for >= GKrellM 2.x
+  -----------------------------
+  Compile the plugin for GKrellm 2.x (the default),
+    make
+
+  Install the plugin for GKrellM 2.x (the default),
+    make install        <--- installs to $HOME/.gkrellm2/plugins
+    make site_install   <--- installs to /usr/share/gkrellm2/plugins
+
+  Installing for GKrellM 1.x (Note the trailing "1")
+  --------------------------------------------------
+  Compile for GKrellM 1.x with,
+    make i8krellm1
+
+  Install for GKrellM 1.x with,
+    make install1       <--- installs to $HOME/.gkrellm/plugins
+    make site_install1  <--- installs to /usr/share/gkrellm/plugins
+
+  And restart gkrellm.  The plugin should appear in the list of plugins.
+  Click the enable button and re-position it if desired.
+
+  As soon as you load the plugin for the first time, you may see
+  error messages scrolling by in your terminal.  If you do, ignore
+  them.  They will go away as soon as you enter the path to the
+  i8kfan utility in the configuration tab for i8krellm and hit the
+  Apply button.
+

@@ -1,0 +1,66 @@
+i8krellm is a GKrellM interface to the Dell Inspiron 8000 fan control utilities
+and Linux kernel module written by Massimo Dal Zotto <dz@debian.org>.
+
+i8krellm reports the system's current CPU temperature, AC/BAT status, "mode"
+LED, and two animated fans and their RPMs.  Your Dell Service Tag appears as
+a tooltip.  There are two modes of operation which can be toggled by clicking
+the temperature button.
+	auto: fan speeds cycle off, low, or high based on current CPU temp.
+	manual: fan states are cycled only when a fan image is clicked.
+
+The GKrellM plugin periodically polls (user adjustable polling interval) the
+/proc/i8k file for the CPU temperature, AC/Battery state (if enabled in
+your i8k kernel module), and the fan speeds.  It controls the fan state by
+calling the i8kfan (i8kctl) utility to control the fan states.
+
+i8krellm GUI configuration:
+All GUI options can be enabled/disabled under the plugin's configuration
+window.  You can display your CPU temperature in Celsius or Fahrenheit,
+enable/disable the one of the fans, toggle the CPU temperature chart,
+display the fan revolution-per-minutes speed, and toggle the mouseover
+display of your Dell Service Tag.  Most of these GUI widgets are at the
+request of various users of the original i8krellm plugin.  If you prefer,
+they may be disabled to the point where the original GUI layout can be
+displayed.
+
+Power Status:
+The AC/BAT state is determined first by using the i8k kernel module (try
+"insmod i8k power_status=1"), second by looking at /proc/apm, and lastly
+by looking at /proc/acpi/ac_adapter/AC/state. If no power status can be
+determined, you should use the battery temperature triggers as the default
+triggers.
+
+Temperature Triggers:
+i8krellm supports a hysteresis approach to cycling the fan states.  Under
+the Temps tag you can set the hysteresis value for both AC and BAT states.
+As the CPU temperature exceeds the low value plus the hysteresis value,
+it will enter low speed.  If the CPU temperature falls below the low value
+minus the hysteresis value, it will shut off.  The same approach applies
+to the high temperature values also.
+
+Temperature Units:
+You may monitor your CPU temperature in either Celsius or Fahrenheit, but
+you will need to change the fan temperature triggers accordingly.  They
+do not rescale if you toggle between the two temperature scales.  Also, if
+you change temperature units, the chart will not rescale accordingly either.
+
+Troubleshooting:
+If you are having problems installing the kernel module, please consult the
+various on-line resources for adding kernel modules or rebuilding your kernel.
+If you have successfully built the kernel module (i.e. /proc/i8k exists) and
+you cannot get this module to work, you may contact me for help.
+
+Special thanks to the following,
+	Massimo Dal Zotto for writing the Dell I8Kutils.
+	Bill Wilson for GKrellM and the gkrellm-demos and all his help!
+	Marcel Mol for /proc/apm, hysteresis, and other improvements.
+	Dagfinn Ilmari Mannsåker for bugfixes and Debian package.
+	Cole Tuininga for UI suggestions.
+	Richard Kroonen and Mike Woods for pointing out that some laptops
+		have only one fan and the plugin should allow for that.
+	Alan Murphy for suggesting the temperature graphing.
+	Ted Yu for finding a bug or two.
+	Marc for requesting the RPM display.
+	Frank Solensky and Keith Perkins for submitting patches for GKrellM 2.
+	John D'Ausilio for submitting the patch for ACPI support.
+
