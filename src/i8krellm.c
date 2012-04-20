@@ -1,4 +1,5 @@
 /* i8krellm.c GKrellM plugin for Dell Inspiron notebook fan control
+ * Copyright (c) 2011-2012 Matthew Blissett <matthew.r.blissett@gmail.com>
  * Copyright (c) 2001-2003 Eric Johnson <eric@coding-zone.com>
  *
  * This plugin is coded for GKrellm v1.2 (for now), but uses Bill's
@@ -8,9 +9,6 @@
  * In order to use this plugin, you must be using the SMM kernel
  * BIOS driver and utilities by Massimo Dal Zotto <dz@debian.org>
  * http://www.debian.org/~dz/i8k/
- *
- * This page best viewed with vim (http://www.vim.org)
- * :set ts=2
  *
  ***********************************************************************
  *
@@ -39,6 +37,7 @@
 #include <string.h>      /* strcmp(),etc */
 #include <stdlib.h>      /* ? */
 #include "prop-anim.xpm"
+
 
 /* support for both versions */
 #ifdef GKRELLM2

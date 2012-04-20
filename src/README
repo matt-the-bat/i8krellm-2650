@@ -1,16 +1,12 @@
-i8krellm is a GKrellM interface to the Dell Inspiron 8000 fan control utilities
+i8krellm-2650 is a GKrellM interface to the Dell Inspiron 8000 fan control utilities
 and Linux kernel module written by Massimo Dal Zotto <dz@debian.org>.
 
-i8krellm reports the system's current CPU temperature, AC/BAT status, "mode"
-LED, and two animated fans and their RPMs.  Your Dell Service Tag appears as
-a tooltip.  There are two modes of operation which can be toggled by clicking
-the temperature button.
-	auto: fan speeds cycle off, low, or high based on current CPU temp.
-	manual: fan states are cycled only when a fan image is clicked.
+i8krellm-2650 reports the system's current CPU temperature. Fan states are identified
+by two animated fans and numerical RPM.
+Your Dell Service Tag appears as a tooltip.
 
 The GKrellM plugin periodically polls (user adjustable polling interval) the
-/proc/i8k file for the CPU temperature, AC/Battery state (if enabled in
-your i8k kernel module), and the fan speeds.  It controls the fan state by
+/proc/i8k file for the CPU temperature and the fan speeds. It controls the fan state by
 calling the i8kfan (i8kctl) utility to control the fan states.
 
 i8krellm GUI configuration:

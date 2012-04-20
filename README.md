@@ -8,6 +8,7 @@ The code herein may work with other Dell Inspiron/Latitude laptops, in other Lin
 1.	Restore basic functionality - CPU temp, fan speed, & fan control
 2.	Improve automatic fan control
 3.	Streamline plugin
+4.  Rewrite for gkrellm2 only
 
 ### Prerequisites ###
 _Incomplete list_

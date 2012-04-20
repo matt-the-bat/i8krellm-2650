@@ -4,7 +4,10 @@ Supported operating systems
 
 Supported hardware and BIOS versions
 ------------------------------------
-	Inspiron 8000 (BIOS A17)
+	Inspiron 2650  :-p
+
+Old list
+"	Inspiron 8000 (BIOS A17)
 	Inspiron 8100 (BIOS A04)
 	Inspiron 4000 (BIOS A10), no fan speed
 	Inspiron 4000 (BIOS A18)
@@ -27,17 +30,19 @@ Supported hardware and BIOS versions
 	  Latitude LS H500ST
 
 	(see http://www.debian.org/~dz/i8k/00-README for details)
+"
 
 Requirements
 ------------
-  GKrellM >= 1.2.0 and even GKrellM 2.0 (http://gkrellm.net)
+" GKrellM >= 1.2.0 and even GKrellM 2.0 (http://gkrellm.net)
   Linux kernel >= 2.4.14-pre8
   SMM BIOS kernel module (http://www.debian.org/~dz/i8k/)
   i8kutils >= 1.5 (http://www.debian.org/~dz/i8k/)
+"
 
 SMM BIOS kernel module and utils
 --------------------------------
-  Your kernel must include the SMM BIOS kernel module written by
+" Your kernel must include the SMM BIOS kernel module written by
   Massimo Dal Zotto <dz@debian.org>.  The module is listed as Dell
   Inspiron 8000 support under the CPU configuration of your kernel
   configuration screen.  I recommend building it as a module so
@@ -51,23 +56,30 @@ SMM BIOS kernel module and utils
   You must also use the i8kfan utility included with the i8kutils
   package found at http://www.debian.org/~dz/i8k/.  i8krellm uses the
   i8kfan utility to control your fans.
+"
 
 Installing
 ----------
-  Extract the tar file,
-    tar xzf i8krellm-2.x.tar.gz
+  Download the source, in however fashion you choose.
+  
+  Go into the project source directory,
+    cd src/
 
-  Go into the new directory,
-    cd i8krellm-2.x
+  From here, it is the same as for i8krellm-2.5, as follows:
 
   Installing for >= GKrellM 2.x
   -----------------------------
   Compile the plugin for GKrellm 2.x (the default),
-    make
+		make
 
   Install the plugin for GKrellM 2.x (the default),
-    make install        <--- installs to $HOME/.gkrellm2/plugins
-    make site_install   <--- installs to /usr/share/gkrellm2/plugins
+	Install for user only (no root/sudo required)
+	to $HOME/.gkrellm2/plugins
+		make install
+		
+    Install system-wide (root required)
+	to /usr/share/gkrellm2/plugins
+		make site_install
 
   Installing for GKrellM 1.x (Note the trailing "1")
   --------------------------------------------------
