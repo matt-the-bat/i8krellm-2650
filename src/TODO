@@ -1,2 +1,0 @@
-TODO: Separate the temperature reading and the buttons to separate krells
-the button element the temperature lives in has no purpose now (was once to toggle the chart)
