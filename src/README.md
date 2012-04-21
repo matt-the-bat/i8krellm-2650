@@ -1,15 +1,26 @@
-i8krellm-2650 is a GKrellM interface to the Dell Inspiron 8000 fan control utilities
-and Linux kernel module written by Massimo Dal Zotto <dz@debian.org>.
+## i8krellm-2650 ##
 
-i8krellm-2650 reports the system's current CPU temperature. Fan states are identified
-by two animated fans and numerical RPM.
+i8krellm-2650 is a fork of i8krellm, the [gkrellm](http://gkrellm.net)
+plugin by [Eric Johnson](mailto:eric@coding-zone.com) (et al).  
+Original i8k kernel module and i8k utilities written by
+[Massimo Dal Zotto](mailto:dz@debian.org).
+
+This project is __specifically__ intended for the Dell Inspiron 2650,
+to work under Debian stable (Squeeze) and later.
+The code herein may work with other Dell Inspiron/Latitude laptops,
+in other Linux distributions. Your mileage may vary.
+
+### Functionality ###
+i8krellm-2650 reports the system's current CPU temperature. Fan states
+are identified by two animated fans and numerical RPM.
 Your Dell Service Tag appears as a tooltip.
 
-The GKrellM plugin periodically polls (user adjustable polling interval) the
-/proc/i8k file for the CPU temperature and the fan speeds. It controls the fan state by
-calling the i8kfan (i8kctl) utility to control the fan states.
+The GKrellM plugin periodically polls, at a user-adjustable polling
+interval, the /proc/i8k file for the CPU temperature and the fan speeds.
+It controls the fan state by calling the i8kfan (i8kctl) utility to
+control the fan states.
 
-i8krellm GUI configuration:
+### GUI configuration ###
 All GUI options can be enabled/disabled under the plugin's configuration
 window.  You can display your CPU temperature in Celsius or Fahrenheit,
 enable/disable the one of the fans, toggle the CPU temperature chart,
@@ -19,20 +30,13 @@ request of various users of the original i8krellm plugin.  If you prefer,
 they may be disabled to the point where the original GUI layout can be
 displayed.
 
-Power Status:
-The AC/BAT state is determined first by using the i8k kernel module (try
-"insmod i8k power_status=1"), second by looking at /proc/apm, and lastly
-by looking at /proc/acpi/ac_adapter/AC/state. If no power status can be
-determined, you should use the battery temperature triggers as the default
-triggers.
+### Power Status ###
+Removed from i8krellm-2650.  
+Gkrellm2's built-in Battery plugin does this well already.
 
-Temperature Triggers:
-i8krellm supports a hysteresis approach to cycling the fan states.  Under
-the Temps tag you can set the hysteresis value for both AC and BAT states.
-As the CPU temperature exceeds the low value plus the hysteresis value,
-it will enter low speed.  If the CPU temperature falls below the low value
-minus the hysteresis value, it will shut off.  The same approach applies
-to the high temperature values also.
+### Automatic fan control (hysteresis) ###
+Currently removed from i8krellm-2650.
+
 
 Temperature Units:
 You may monitor your CPU temperature in either Celsius or Fahrenheit, but
