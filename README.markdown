@@ -11,16 +11,34 @@ The code herein may work with other Dell Inspiron/Latitude laptops, in other Lin
 4.  Rewrite for gkrellm2 only
 
 ### Prerequisites ###
-_Incomplete list_
+**Incomplete. Please feel free to contact me with any corrections.**  
+Using Debian repos "squeeze" and "squeeze-updates"
 
-*	i8kutils 1.33 ([Debian-squeeze package & source](http://packages.debian.org/squeeze/i8kutils))
+*	i8kutils 		=1.33 ([Debian-squeeze package & source](http://packages.debian.org/squeeze/i8kutils))
 *	i8k kernel module installed (from i8kutils source)
-*	libc0.1  >=2.3
-*	libc6  >=2.3
-* 	tk8.4  
+*	libc0.1  		=2.3
+* 	tk8.4			=8.4.19-4  
 The tk toolkit is a dependency for the i8kutils Debian _package_, but is not utilized in this project.
 It created a GUI interface for i8kutils, which is essentially what i8krellm-2650 will do.
-*	gkrellm version 2
+
+**gkrellm**			=2.3.4
+
+*	 libntlm0  		=1.2-1
+*	 libatk1.0-0	=1.30.0-1
+*	 libc6			=2.11.3-3 			(*squeeze-updates repo*)
+*	 libcairo2		=1.8.10-6
+*	 libfontconfig1	=2.8.0-2.1
+*	 libfreetype6	=2.4.2-2.1+squeeze4	(*squeeze-updates repo*)
+*	 libgcrypt11	=1.4.5-2
+*	 libglib2.0-0	=2.24.2-1
+*	 libgnutls26	=2.8.6-1+squeeze2	(*squeeze-updates repo*)
+*	 libgtk2.0-0	=2.20.1-2
+*	 libice6		=2:1.0.6-2
+*	 libntlm0		=1.2-1
+*	 libpango1.0-0	=1.28.3-1+squeeze2
+*	 libsm6			=2:1.1.1-1
+*	 libx11-6		=2:1.3.3-4
+
 
 ### Background ###
   Together, i8kutils & the i8k module adds Fn key, fan, and CPU temperature functionality to Dell Inspiron/Latitude laptops.

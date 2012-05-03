@@ -5,10 +5,11 @@ plugin by [Eric Johnson](mailto:eric@coding-zone.com) (et al).
 Original i8k kernel module and i8k utilities written by
 [Massimo Dal Zotto](mailto:dz@debian.org).
 
-This project is __specifically__ intended for the Dell Inspiron 2650,
-to work under Debian stable (Squeeze) and later.
-The code herein may work with other Dell Inspiron/Latitude laptops,
-in other Linux distributions. Your mileage may vary.
+This project is **specifically** intended for the Dell Inspiron 2650,
+to work under Debian stable (Squeeze) and later.  
+The code herein may work with other Dell Inspiron/Latitude laptops, in
+other Linux distributions.  
+Your mileage may vary.
 
 ### Functionality ###
 i8krellm-2650 reports the system's current CPU temperature. Fan states
@@ -17,8 +18,8 @@ Your Dell Service Tag appears as a tooltip.
 
 The GKrellM plugin periodically polls, at a user-adjustable polling
 interval, the /proc/i8k file for the CPU temperature and the fan speeds.
-It controls the fan state by calling the i8kfan (i8kctl) utility to
-control the fan states.
+It controls the fan state by calling the i8kfan (i8kctl) utility to con-
+trol the fan states.
 
 ### GUI configuration ###
 All GUI options can be enabled/disabled under the plugin's configuration
@@ -26,7 +27,7 @@ window.  You can display your CPU temperature in Celsius or Fahrenheit,
 enable/disable the one of the fans, toggle the CPU temperature chart,
 display the fan revolution-per-minutes speed, and toggle the mouseover
 display of your Dell Service Tag.  Most of these GUI widgets are at the
-request of various users of the original i8krellm plugin.  If you prefer,
+request of various users of the original i8krellm plugin. If you prefer,
 they may be disabled to the point where the original GUI layout can be
 displayed.
 
@@ -37,20 +38,15 @@ Gkrellm2's built-in Battery plugin does this well already.
 ### Automatic fan control (hysteresis) ###
 Currently removed from i8krellm-2650.
 
+### Temperature Units ###
+You may monitor your CPU temperature in either Celsius or Fahrenheit.
 
-Temperature Units:
-You may monitor your CPU temperature in either Celsius or Fahrenheit, but
-you will need to change the fan temperature triggers accordingly.  They
-do not rescale if you toggle between the two temperature scales.  Also, if
-you change temperature units, the chart will not rescale accordingly either.
+### Troubleshooting ###
+If you are having problems installing the kernel module, please consult
+the various on-line resources for adding kernel modules or rebuilding
+your kernel.
 
-Troubleshooting:
-If you are having problems installing the kernel module, please consult the
-various on-line resources for adding kernel modules or rebuilding your kernel.
-If you have successfully built the kernel module (i.e. /proc/i8k exists) and
-you cannot get this module to work, you may contact me for help.
-
-Special thanks to the following,
+*Special thanks to the following,*
 	Massimo Dal Zotto for writing the Dell I8Kutils.
 	Bill Wilson for GKrellM and the gkrellm-demos and all his help!
 	Marcel Mol for /proc/apm, hysteresis, and other improvements.
