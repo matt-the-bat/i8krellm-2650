@@ -518,7 +518,7 @@ static gint __i8k_get_proc_info() {
 	tok = strtok(NULL,_i8k_delim);
 	strcpy(&_i8k_procinfo.rfan_stat[0],tok);
 
-	tok = strtok(NULL,_i8k_delim);
+	tok = strtok(NULL,_i8k_delim);				/* Left fan RPM */
 	strcpy(&_i8k_procinfo.lfan_rpm[0],tok);
 
 	tok = strtok(NULL,_i8k_delim);
@@ -561,9 +561,9 @@ static void __i8k_load_animation(gint has_proc) {
 }
 
 static void __i8k_fan_check() {
-	gint temp;
+//	gint temp;
 
-	if (_i8k_state.auto_mode) {
+/*	if (_i8k_state.auto_mode) {
 		temp = atoi(&_i8k_procinfo.cputemp[0]);
 		_i8k_lf.prev_state = atoi(&_i8k_procinfo.lfan_stat[0]);
 		_i8k_rf.prev_state = atoi(&_i8k_procinfo.rfan_stat[0]);
@@ -600,13 +600,13 @@ static void __i8k_fan_check() {
 		if (_i8k_lf.prev_state != _i8k_lf.state || _i8k_rf.prev_state != _i8k_rf.state) {
 			memset(&_i8k_guiopts.fan_cmd[0],0,128);
 
-			if (_i8k_guiopts.enabled_fans == 0) {        /* left fan only */
+			if (_i8k_guiopts.enabled_fans == 0) {        
 				snprintf(&_i8k_guiopts.fan_cmd[0],sizeof(_i8k_guiopts.fan_cmd)-1,"%s %d - >/dev/null &",
 				  &_i8k_guiopts.i8kfan_loc[0],_i8k_lf.state);
-			} else if (_i8k_guiopts.enabled_fans == 1) { /* right fan only */
+			} else if (_i8k_guiopts.enabled_fans == 1) { 
 				snprintf(&_i8k_guiopts.fan_cmd[0],sizeof(_i8k_guiopts.fan_cmd)-1,"%s - %d >/dev/null &",
 				  &_i8k_guiopts.i8kfan_loc[0],_i8k_rf.state);
-			} else {                                     /* both fans */
+			} else {                                     
 				snprintf(&_i8k_guiopts.fan_cmd[0],sizeof(_i8k_guiopts.fan_cmd)-1,"%s %d %d >/dev/null &",
 				  &_i8k_guiopts.i8kfan_loc[0],_i8k_lf.state,_i8k_rf.state);
 			}
@@ -614,7 +614,7 @@ static void __i8k_fan_check() {
 			gkrellm_system(&_i8k_guiopts.fan_cmd[0]);
 #endif
 		}
-	} else {
+	} else { */
 		if (_i8k_lf.prev_state != _i8k_lf.state || _i8k_rf.prev_state != _i8k_rf.state) {
 			memset(&_i8k_guiopts.fan_cmd[0],0,128);
 			if (_i8k_guiopts.enabled_fans == 0) {        /* left fan only */
@@ -633,7 +633,7 @@ static void __i8k_fan_check() {
 			_i8k_lf.prev_state = _i8k_lf.state;
 			_i8k_rf.prev_state = _i8k_rf.state;
 		}
-	}
+//	}
 	return;
 }
 
@@ -668,7 +668,7 @@ static void __i8k_fan_update(struct _i8krellm_fan* fan) {
 		gkrellm_make_decal_invisible(_i8k_panel, _i8k_rightfan);
 	}
 	
-	gkrellm_draw_decal_pixmap(_i8k_panel,_i8k_autoled,D_MISC_LED0); /* off */
+//	gkrellm_draw_decal_pixmap(_i8k_panel,_i8k_autoled,D_MISC_LED0); /* off */
 
 	if (_i8k_guiopts.fanspeed_enabled) {
 		gkrellm_draw_decal_text(_i8k_panel,_i8k_leftrpm,
